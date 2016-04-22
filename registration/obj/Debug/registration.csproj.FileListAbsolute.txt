@@ -1,0 +1,6 @@
+C:\Users\clive\Code\registration\registration\bin\Debug\registration.exe.config
+C:\Users\clive\Code\registration\registration\bin\Debug\registration.exe
+C:\Users\clive\Code\registration\registration\bin\Debug\registration.pdb
+C:\Users\clive\Code\registration\registration\obj\Debug\registration.csprojResolveAssemblyReference.cache
+C:\Users\clive\Code\registration\registration\obj\Debug\registration.exe
+C:\Users\clive\Code\registration\registration\obj\Debug\registration.pdb
