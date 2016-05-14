@@ -8,18 +8,40 @@ namespace registration
 {
     class Courses
     {
-        private String Name, Code;
+        private String Name;
+        private int id;
         private double Cost;
+        private database db;
 
-        public Courses(String Name, String Code, double Cost)
+        public Courses(String Name, int id, double Cost)
         {
+            db = new database();
             this.Name = Name;
-            this.Code = Code;
+            this.id = id;
             this.Cost = Cost;
+            db.addCourse(id, Name, Cost);
         }
 
-        public String getName() { return Name; }
-        public String getCode() { return Code; }
-        public double getCost() { return Cost; }
+        public Courses(int id)
+        {
+            this.db = new database();
+            this.id = id;
+            this.Name = db.getCourse(id.ToString(), "Name");
+            this.Cost = int.Parse(db.getCourse(id.ToString(), "cost"));
+            
+        }
+
+        public String getName()
+        {
+            return this.db.getCourse(this.id.ToString(), "Name");
+        }
+        public int getID()
+        {
+            return int.Parse(this.db.getCourse(this.id.ToString(), "id"));
+        }
+        public double getCost()
+        {
+            return double.Parse(this.db.getCourse(this.id.ToString(), "cost"));
+        }
     }
 }

@@ -8,104 +8,67 @@ namespace registration
 {
     class Payments
     {
-        private  Dictionary<string, double> paid;
-
-        private Dictionary<string, double> unpaid;
+        
+        private database db;
+        private int admNo;
+       
 
         //intialise list of paid and unpaid courses
-        public Payments()
+        public Payments(int admNo)
         {
-            paid = new Dictionary<string, double>();
-            unpaid = new Dictionary<string, double>();
+            this.admNo = admNo;           
+            db = new database();
         }
 
         //register course and bill student
-       public void bill(string course,double amount)
+       public void bill(Courses course)
         {
-            unpaid[course] = amount;
+            db.billStudent(course, this.admNo);
 
         }
 
         //pay for registered course
-        public void pay(string course, double amount)
+        public void pay(Courses course)
         {
-            unpaid.Remove(course);
-            paid[course] = amount;
+            db.paybillStudent(course, this.admNo);
 
         }
         //get all paid for courses
-        public String getPaid()
+        public Dictionary<int, Courses> getPaid()
         {
-            String courses = "";
-            foreach (KeyValuePair<string, double> entry in paid)
-            {
-                courses += entry.Key + ",";
-
-            }
-            return courses.TrimEnd(','); 
+            return db.getPaidPayments(this.admNo);
         }
 
         //get total outstanding fees
         public double getTotal()
         {
-            double courses = 0;
-            foreach (KeyValuePair<string, double> entry in unpaid)
-            {
-                courses += entry.Value;
-
-            }
-            return courses;
+           return db.getTotalUnpaid(this.admNo);
+       
         }
         //get all courses that are registered but unpaid for
-        public String getUnpaid()
+        public Dictionary<int,Courses> getUnpaid()
         {
-            String courses = "";
-            foreach (KeyValuePair<string, double> entry in unpaid)
-            {
-                courses += entry.Key + ",";
+            return db.getUnpaidPayments(this.admNo);
 
-            }
-            return courses.TrimEnd(',');
         }
 
-        //Check which courses are not paid for
-        public String[] CheckUnpaid()
-        {
-            String [] courses = new String[unpaid.Count];
-            int index = 0;
-            foreach (KeyValuePair<string, double> entry in unpaid)
-            {
-                courses [index]= entry.Key;
-                index++;
-
-            }
-
-            return courses;
-
-        }
-        //Check cost of course
-        public double Cost(String name)
-        {
-            return unpaid[name];
-        }
+       
         //Check if a course is registered
-        public bool CheckRegistered(String CourseName)
+        public bool CheckRegistered(int CourseID)
         {
-            foreach (KeyValuePair<string, double> entry in paid)
-            {
-               if(CourseName == entry.Key) return true;
 
+           String paymentstatus =  db.getPayment(CourseID, this.admNo);
+
+            if(paymentstatus != "none")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
-            foreach (KeyValuePair<string, double> entry in unpaid)
-            {
-                if (CourseName == entry.Key) return true;
-                else return false;
-
-            }
-
-            return false;
-
+            
 
         }
 
