@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    internal delegate int NewCode();
     public partial class AddCourse : Form
     {
         Storage db = new Storage();
         Course course;
+        NewCode newcode;
         int Code;
         public AddCourse()
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.Code = db.getNewCode();
+            this.newcode = new NewCode(db.getNewCode);
+            this.Code = this.newcode();
             this.label4.Text = Code.ToString();
             this.numericUpDown1.Maximum = 50000;
             this.numericUpDown1.Minimum = 1;

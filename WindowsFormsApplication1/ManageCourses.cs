@@ -14,12 +14,14 @@ namespace WindowsFormsApplication1
     {
         Storage db;
         Dictionary<int, Course> courses;
+        builder build;
         public ManageCourses()
         {
             InitializeComponent();
             this.CenterToScreen();
             this.db = new Storage();
-            this.loadbox();
+            this.build = new builder(this.loadbox);
+            this.build();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

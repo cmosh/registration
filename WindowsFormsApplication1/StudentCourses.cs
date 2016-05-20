@@ -10,20 +10,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+ 
     public partial class StudentCourses : Form
     {
         Storage db = new Storage();
         Dictionary<int, Course> unpaidcourses, unregistered;
         Student student;
-       
+        builder build;
 
         private void button1_Click(object sender, EventArgs e)
         {
             int courseID = (comboBox1.SelectedItem as ComboBoxItem).Value;
             Course course = new Course(courseID);
             student.payments.bill(course);
-            MessageBox.Show(course.getName() + "has been paid for.", "Registeration");
-            this.loadBoxes();
+            MessageBox.Show(student.getName() + " has registered for "+course.getName()+".", "Registeration");           
+            this.build();
         }
 
         private void loadBoxes()
@@ -52,8 +53,8 @@ namespace WindowsFormsApplication1
             int courseID = (comboBox2.SelectedItem as ComboBoxItem).Value;
             Course course = new Course(courseID);
             student.payments.pay(course);
-            MessageBox.Show(course.getName() + "has been paid for.", "Payment");
-            this.loadBoxes();
+            MessageBox.Show("Course "+course.getName() + " has been paid for by " + student.getName(), "Payment");
+            this.build();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -61,12 +62,17 @@ namespace WindowsFormsApplication1
             this.Close();
         }
 
+        private void StudentCourses_Load(object sender, EventArgs e)
+        {
+            this.build = new builder(this.loadBoxes);
+        }
+
         public StudentCourses(int Admno)
         {
             InitializeComponent();
             this.CenterToScreen();
             this.student = new Student(Admno);
-            this.loadBoxes();
+            this.build();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         private Dictionary<int,Student> students;
         private Dictionary<int, Course> paid, registered;
         private Student student;
+        private builder build;
         public ManageStudents()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace WindowsFormsApplication1
                 String stud = x.Value.getName() + ", Year " + x.Value.getYear();
                 this.comboBox1.Items.Add(new ComboBoxItem(stud, i));
             }
+            this.build = new builder(this.builboxes);
            
 
         }
@@ -80,7 +82,7 @@ namespace WindowsFormsApplication1
                 label15.Text = "elligible";
                 label16.Text = "access approved";
             }
-            this.builboxes();
+            this.build();
             this.button2.Enabled = true;
         }
 

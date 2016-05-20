@@ -16,3 +16,21 @@ c:\users\cmosh_000\documents\visual studio 2015\Projects\WindowsFormsApplication
 c:\users\cmosh_000\documents\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditCourse.resources
 c:\users\cmosh_000\documents\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ManageCourses.resources
 c:\users\cmosh_000\documents\visual studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SchoolAccounts.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\bin\Debug\System.Data.SQLite.pdb
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\bin\Debug\System.Data.SQLite.xml
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AddCourse.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.createstudent.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EditCourse.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ManageCourses.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ManageStudents.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SchoolAccounts.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.StudentCourses.resources
+C:\Users\cmosh_000\Code\registration\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

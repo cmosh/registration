@@ -167,26 +167,28 @@ namespace WindowsFormsApplication1
 
         }
 
-        internal Dictionary<int, Course> getCollected()
+        internal Dictionary<double, Course> getCollected()
         {
             this.con.Open();
             SQLiteCommand com = new SQLiteCommand(this.con);
-            com.CommandText = "SELECT payments.courseID FROM payments WHERE payments.paid = 1 ; ";
+            com.CommandText = "SELECT payments.courseID, payments.amount FROM payments WHERE payments.paid = 1 ; ";
             SQLiteDataReader reader = com.ExecuteReader();
-            Dictionary<int, int> courses = new Dictionary<int, int>();
+            Dictionary<int, double> courses = new Dictionary<int, double>();
             int tempid;
+            double tempcost;
             while (reader.Read())
             {
                 tempid = int.Parse(reader["courseID"].ToString());
-                courses[tempid] = (tempid);
+                tempcost = double.Parse((reader["amount"]).ToString());
+                courses[tempid] = (tempcost);
             }
             this.con.Close();
 
-            Dictionary<int, Course> courses2 = new Dictionary<int, Course>();
+            Dictionary<double, Course> courses2 = new Dictionary<double, Course>();
 
-            foreach (KeyValuePair<int, int> cs in courses)
+            foreach (KeyValuePair<int, double> cs in courses)
             {
-                courses2[cs.Key] = new Course(cs.Key);
+                courses2[cs.Value] = new Course(cs.Key);
             }
             return courses2;
 
@@ -275,26 +277,28 @@ namespace WindowsFormsApplication1
             this.con.Close();
         }
 
-        internal Dictionary<int, Course> getUncollected()
+        internal Dictionary<double, Course> getUncollected()
         {
             this.con.Open();
             SQLiteCommand com = new SQLiteCommand(this.con);
-            com.CommandText = "SELECT payments.courseID FROM payments WHERE payments.paid = 0 ; ";
+            com.CommandText = "SELECT payments.courseID , payments.amount FROM payments WHERE payments.paid = 0 ; ";
             SQLiteDataReader reader = com.ExecuteReader();
-            Dictionary<int, int> courses = new Dictionary<int, int>();
+            Dictionary<int, double> courses = new Dictionary<int, double>();
             int tempid;
+            double tempcost;
             while (reader.Read())
             {
                 tempid = int.Parse(reader["courseID"].ToString());
-                courses[tempid] = (tempid);
+                tempcost = double.Parse((reader["amount"]).ToString());
+                courses[tempid] = (tempcost);
             }
             this.con.Close();
 
-            Dictionary<int, Course> courses2 = new Dictionary<int, Course>();
+            Dictionary<double, Course> courses2 = new Dictionary<double, Course>();
 
-            foreach (KeyValuePair<int, int> cs in courses)
+            foreach (KeyValuePair<int, double> cs in courses)
             {
-                courses2[cs.Key] = new Course(cs.Key);
+                courses2[cs.Value] = new Course(cs.Key);
             }
             return courses2;
         }

@@ -93,6 +93,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "StudentCourses";
             this.Text = "Student Courses";
+            this.Load += new System.EventHandler(this.StudentCourses_Load);
             this.ResumeLayout(false);
 
         }

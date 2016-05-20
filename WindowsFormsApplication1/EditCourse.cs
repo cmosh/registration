@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    internal delegate void Update(Course course, double x);
     public partial class EditCourse : Form
     {
         Course course;
         Storage db;
+        Update update;
         public EditCourse(int id)
         {
             InitializeComponent();
@@ -23,11 +25,12 @@ namespace WindowsFormsApplication1
             this.label3.Text = course.getCost().ToString();
             this.numericUpDown1.Maximum = 50000;
             this.numericUpDown1.Minimum = 1;
+            update = new Update(this.db.updatecost);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.db.updatecost(course,(double)this.numericUpDown1.Value);
+            this.update(course,(double)this.numericUpDown1.Value);
             MessageBox.Show(course.getName() + "has been updated", this.course.getName());
         }
 

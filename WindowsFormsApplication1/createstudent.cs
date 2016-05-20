@@ -15,10 +15,12 @@ namespace WindowsFormsApplication1
         int tempid;
         Student student;
         Storage db;
+        NewCode newcode;
         public createstudent()
         {
             db = new Storage();
-            this.tempid = db.getNewID();
+            newcode = new NewCode(db.getNewID);
+            this.tempid = this.newcode();
             InitializeComponent();
             this.numericUpDown1.Minimum = 1;
             this.numericUpDown1.Maximum = 4;
