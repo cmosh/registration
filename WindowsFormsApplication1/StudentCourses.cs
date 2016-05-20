@@ -18,6 +18,8 @@ namespace WindowsFormsApplication1
         Student student;
         builder build;
 
+       
+
         private void button1_Click(object sender, EventArgs e)
         {
             int courseID = (comboBox1.SelectedItem as ComboBoxItem).Value;
@@ -64,7 +66,7 @@ namespace WindowsFormsApplication1
 
         private void StudentCourses_Load(object sender, EventArgs e)
         {
-            this.build = new builder(this.loadBoxes);
+            
         }
 
         public StudentCourses(int Admno)
@@ -72,6 +74,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             this.CenterToScreen();
             this.student = new Student(Admno);
+            this.build = new builder(this.loadBoxes);
             this.build();
         }
     }
